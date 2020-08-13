@@ -1,14 +1,23 @@
 <template>
   <div id="app">
-    Appd
+    <router-view/>
+    <FootGuide/>
   </div>
 </template>
-<script>
 
+<script>
+  import FootGuide from './components/FootGuide/FootGuide'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+    FootGuide
+  }
 }
 </script>
 
-<style >
+<style lang="stylus" rel="stylesheet/stylus">
+  #app
+    width 100%
+    height 100%
+    background #f5f5f5
 </style>
