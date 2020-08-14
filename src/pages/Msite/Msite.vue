@@ -134,7 +134,7 @@
   import HeaderTop from '../../components/HeaderTop/HeaderTop'
   import ShopList from '../../components/ShopList/ShopList'
   import Swiper from 'swiper'
-  import 'swiper/swiper-bundle.min.css'
+  import 'swiper/dist/css/swiper.min.css'
 
   export default {
     components:{

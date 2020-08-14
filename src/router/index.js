@@ -9,6 +9,7 @@ import Msite from '../pages/Msite/Msite'
 import Order from '../pages/Order/Order'
 import Search from '../pages/Search/Search'
 import Profile from '../pages/Profile/Profile'
+import Login from '../pages/Login/Login'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,10 @@ export default new VueRouter({
     {
       path:'/',
       redirect:'/msite'
+    },
+    {
+      path:'/login',
+      component: Login
     }
   ]
 })
