@@ -1,18 +1,25 @@
 <template>
   <div id="app">
     <router-view/>
-    <FootGuide/>
+    <FootGuide v-show="$route.meta.showFooter"/>
   </div>
 </template>
 
 <script>
+  import {mapActions} from 'vuex'
   import FootGuide from './components/FootGuide/FootGuide'
-export default {
-  name: 'App',
-  components:{
-    FootGuide
-  },
-}
+  export default {
+    components:{
+      FootGuide
+    },
+    methods:{
+      ...mapActions(['getAddress'])
+    },
+    mounted () {
+      this.getAddress()
+    }
+
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

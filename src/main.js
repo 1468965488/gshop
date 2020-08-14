@@ -8,5 +8,6 @@ import store from './store'
 new Vue({
   el: '#app',
   render: h => h(App),
-  router
+  router,
+  store
 })

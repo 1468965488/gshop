@@ -2,15 +2,15 @@
 * 包含n个接口函数的模块
 * */
 import ajax from './ajax'
-
+const BASE_URL = '/api'
 // 1、根据经纬度获取位置详情
-export const reqAddress =(geoHash) =>ajax(`/position/${geoHash}`)
+export const reqAddress =(geoHash) =>ajax(`${BASE_URL}/position/${geoHash}`)
 
 // 2、获取食品分类列表
-export const reqFoodCategorys =() =>ajax('/index_category')
+export const reqFoodCategorys =() =>ajax(BASE_URL+'/index_category')
 
 // 3、根据经纬度获取商铺列表
-export const reqShops=(longitude, latitude) =>ajax('/shops', {longitude, latitude})
+export const reqShops=(longitude, latitude) =>ajax(BASE_URL+'/shops', {longitude, latitude})
 
 /*
 // 4、根据经纬度和关键字搜索商铺列表
