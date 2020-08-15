@@ -1,190 +1,91 @@
 <template>
   <div class="shop_container">
-    <ul class="shop_list">
-      <li class="shop_li border-1px">
+    <ul class="shop_list" v-if="shops.length">
+      <li class="shop_li border-1px" v-for="(shop, index) in shops" :key="index">
         <a>
           <div class="shop_left">
-            <img class="shop_img" src="../../components/ShopList/images/shop/1.jpg">
+            <img class="shop_img" :src="imgArr[index]">
           </div>
           <div class="shop_right">
             <section class="shop_detail_header">
-              <h4 class="shop_title ellipsis">锄禾日当午，汗滴禾下土</h4>
+              <h4 class="shop_title ellipsis">{{shop.name}}</h4>
               <ul class="shop_detail_ul">
-                <li class="supports">保</li>
-                <li class="supports">准</li>
-                <li class="supports">票</li>
+                <li class="supports" v-for="(support, index) in shop.supports"
+                    :key="index">{{support.icon_name}}</li>
               </ul>
             </section>
             <section class="shop_rating_order">
               <section class="shop_rating_order_left">
-                <div class="star star-24">
-                  <span class="star-item on"></span>
-                  <span class="star-item on"></span>
-                  <span class="star-item on"></span>
-                  <span class="star-item half"></span>
-                  <span class="star-item off"></span>
-                </div>
+                <Star :score="shop.rating" :size="24"/>
                 <div class="rating_section">
-                  3.6
+                  {{shop.rating}}
                 </div>
                 <div class="order_section">
-                  月售106单
+                  月售{{shop.recent_order_num}}单
                 </div>
               </section>
               <section class="shop_rating_order_right">
-                <span class="delivery_style delivery_right">硅谷专送</span>
+                <span class="delivery_style delivery_right">{{shop.delivery_mode.text}}</span>
               </section>
             </section>
             <section class="shop_distance">
               <p class="shop_delivery_msg">
-                <span>¥20起送</span>
+                <span>¥{{shop.float_minimum_order_amount}}起送</span>
                 <span class="segmentation">/</span>
-                <span>配送费约¥5</span>
-              </p>
-            </section>
-          </div>
-        </a>
-      </li>
-      <li class="shop_li border-1px">
-        <a>
-          <div class="shop_left">
-            <img class="shop_img" src="../../components/ShopList/images/shop/2.jpg">
-          </div>
-          <div class="shop_right">
-            <section class="shop_detail_header">
-              <h4 class="shop_title ellipsis">锄禾日当午，汗滴禾下土</h4>
-              <ul class="shop_detail_ul">
-                <li class="supports">保</li>
-                <li class="supports">准</li>
-                <li class="supports">票</li>
-              </ul>
-            </section>
-            <section class="shop_rating_order">
-              <section class="shop_rating_order_left">
-                <div class="star star-24">
-                  <span class="star-item on"></span>
-                  <span class="star-item on"></span>
-                  <span class="star-item on"></span>
-                  <span class="star-item on"></span>
-                  <span class="star-item off"></span>
-                </div>
-                <div class="rating_section">
-                  4.1
-                </div>
-                <div class="order_section">
-                  月售106单
-                </div>
-              </section>
-              <section class="shop_rating_order_right">
-                <span class="delivery_style delivery_right">硅谷专送</span>
-              </section>
-            </section>
-            <section class="shop_distance">
-              <p class="shop_delivery_msg">
-                <span>¥20起送</span>
-                <span class="segmentation">/</span>
-                <span>配送费约¥5</span>
-              </p>
-            </section>
-          </div>
-        </a>
-      </li>
-      <li class="shop_li border-1px">
-        <a>
-          <div class="shop_left">
-            <img class="shop_img" src="../../components/ShopList/images/shop/3.jpg">
-          </div>
-          <div class="shop_right">
-            <section class="shop_detail_header">
-              <h4 class="shop_title ellipsis">锄禾日当午，汗滴禾下土</h4>
-              <ul class="shop_detail_ul">
-                <li class="supports">保</li>
-                <li class="supports">准</li>
-                <li class="supports">票</li>
-              </ul>
-            </section>
-            <section class="shop_rating_order">
-              <section class="shop_rating_order_left">
-                <div class="star star-24">
-                  <span class="star-item on"></span>
-                  <span class="star-item on"></span>
-                  <span class="star-item on"></span>
-                  <span class="star-item off"></span>
-                  <span class="star-item off"></span>
-                </div>
-                <div class="rating_section">
-                  3.2
-                </div>
-                <div class="order_section">
-                  月售106单
-                </div>
-              </section>
-              <section class="shop_rating_order_right">
-                <span class="delivery_style delivery_right">硅谷专送</span>
-              </section>
-            </section>
-            <section class="shop_distance">
-              <p class="shop_delivery_msg">
-                <span>¥20起送</span>
-                <span class="segmentation">/</span>
-                <span>配送费约¥5</span>
-              </p>
-            </section>
-          </div>
-        </a>
-      </li>
-      <li class="shop_li border-1px">
-        <a>
-          <div class="shop_left">
-            <img class="shop_img" src="../../components/ShopList/images/shop/4.jpg">
-          </div>
-          <div class="shop_right">
-            <section class="shop_detail_header">
-              <h4 class="shop_title ellipsis">锄禾日当午，汗滴禾下土</h4>
-              <ul class="shop_detail_ul">
-                <li class="supports">保</li>
-                <li class="supports">准</li>
-                <li class="supports">票</li>
-              </ul>
-            </section>
-            <section class="shop_rating_order">
-              <section class="shop_rating_order_left">
-                <div class="star star-24">
-                  <span class="star-item on"></span>
-                  <span class="star-item on"></span>
-                  <span class="star-item on"></span>
-                  <span class="star-item half"></span>
-                  <span class="star-item off"></span>
-                </div>
-                <div class="rating_section">
-                  3.6
-                </div>
-                <div class="order_section">
-                  月售106单
-                </div>
-              </section>
-              <section class="shop_rating_order_right">
-                <span class="delivery_style delivery_right">硅谷专送</span>
-              </section>
-            </section>
-            <section class="shop_distance">
-              <p class="shop_delivery_msg">
-                <span>¥20起送</span>
-                <span class="segmentation">/</span>
-                <span>配送费约¥5</span>
+                <span>配送费约¥{{shop.float_delivery_fee}}</span>
               </p>
             </section>
           </div>
         </a>
       </li>
     </ul>
+    <ul v-else>
+      <li><img src="./images/shop_back.svg" alt="back" ></li>
+      <li><img src="./images/shop_back.svg" alt="back" ></li>
+      <li><img src="./images/shop_back.svg" alt="back" ></li>
+      <li><img src="./images/shop_back.svg" alt="back" ></li>
+    </ul>
   </div>
 </template>
 
 <script>
-
+  import {mapState} from 'vuex'
+  import Star from '../Star/Star'
   export default {
-    name:'ShopList'
+    computed:{
+      ...mapState(['shops'])
+    },
+    data(){
+      return {
+        base_url:'http://cangdu.org:8001/img/',
+        //数据能正常请求，单数图片访问不到，只能直接高一些数据了
+        imgArr:[
+          "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597464508309&di=e214d166084eabb06a6b6152ce878b81&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3D8fb124f14336acaf59e096f44cd88d03%2Fbc6ad388d43f8794e09c2fe6da1b0ef41ad53a41.jpg",
+          "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2839149431,2018748184&fm=15&gp=0.jpg",
+          "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1109100042,3372510398&fm=15&gp=0.jpg",
+          "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=701297475,1432338976&fm=26&gp=0.jpg",
+          "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3062424291,1851980275&fm=15&gp=0.jpg",
+          "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3412168283,2616492548&fm=15&gp=0.jpg",
+          "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2754915794,3731670645&fm=15&gp=0.jpg",
+          "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1867441120,3637164098&fm=15&gp=0.jpg",
+          "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3302949772,1188637529&fm=15&gp=0.jpg",
+          "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3623948489,2135628502&fm=11&gp=0.jpg",
+          "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=327421112,1211892043&fm=26&gp=0.jpg",
+          "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1157808516,2918439575&fm=26&gp=0.jpg",
+          "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3626971097,599163172&fm=26&gp=0.jpg",
+          "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4256658032,3304724452&fm=11&gp=0.jpg",
+          "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=873464219,545008966&fm=26&gp=0.jpg",
+          "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2429016343,485262646&fm=26&gp=0.jpg",
+          "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2194747225,3136124498&fm=26&gp=0.jpg",
+          "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1886961978,2107030803&fm=26&gp=0.jpg",
+          "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2665621026,3666475948&fm=26&gp=0.jpg",
+          "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1673478074,3935179740&fm=26&gp=0.jpg",
+        ]
+      }
+    },
+    components:{
+      Star
+    }
   }
 </script>
 
@@ -253,54 +154,6 @@
               .shop_rating_order_left
                 float left
                 color #ff9a0d
-                .star //2x图 3x图
-                  float left
-                  font-size 0
-                  .star-item
-                    display inline-block
-                    background-repeat no-repeat
-                  &.star-48
-                    .star-item
-                      width 20px
-                      height 20px
-                      margin-right 22px
-                      background-size 20px 20px
-                      &:last-child
-                        margin-right: 0
-                      &.on
-                        bg-image('./images/stars/star48_on')
-                      &.half
-                        bg-image('./images/stars/star48_half')
-                      &.off
-                        bg-image('./images/stars/star48_off')
-                  &.star-36
-                    .star-item
-                      width 15px
-                      height 15px
-                      margin-right 6px
-                      background-size 15px 15px
-                      &:last-child
-                        margin-right 0
-                      &.on
-                        bg-image('./images/stars/star36_on')
-                      &.half
-                        bg-image('./images/stars/star36_half')
-                      &.off
-                        bg-image('./images/stars/star36_off')
-                  &.star-24
-                    .star-item
-                      width 10px
-                      height 10px
-                      margin-right 3px
-                      background-size 10px 10px
-                      &:last-child
-                        margin-right 0
-                      &.on
-                        bg-image('./images/stars/star24_on')
-                      &.half
-                        bg-image('./images/stars/star24_half')
-                      &.off
-                        bg-image('./images/stars/star24_off')
                 .rating_section
                   float left
                   font-size 10px
