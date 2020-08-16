@@ -13,10 +13,11 @@
       FootGuide
     },
     methods:{
-      ...mapActions(['getAddress'])
+      ...mapActions(['getAddress', 'getUserInfo'])
     },
     mounted () {
       this.getAddress()
+      this.getUserInfo()
     }
 
   }
