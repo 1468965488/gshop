@@ -5,6 +5,7 @@ import {
   RECEIVE_ADDRESS,
   RECEIVE_CATEGORYS,
   RECEIVE_SHOPS,
+  RECEIVE_USERINFO,
 } from './mutation-types'
 import {
   reqAddress,
@@ -48,4 +49,8 @@ export default {
     }
   },
 
+  //同步记录用户信息
+  recordUserInfo({commit}, userinfo){
+    commit(RECEIVE_USERINFO, {userinfo})
+  }
 }

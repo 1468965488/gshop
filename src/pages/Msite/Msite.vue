@@ -68,7 +68,6 @@
       ...mapState(['address', 'categorys']),
       categorysArr(){
         const {categorys} = this
-        console.log(categorys)
         const arr = []
         let innerArr = []
         categorys.forEach(item=>{
