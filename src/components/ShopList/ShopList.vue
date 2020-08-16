@@ -1,7 +1,8 @@
 <template>
   <div class="shop_container">
     <ul class="shop_list" v-if="shops.length">
-      <li class="shop_li border-1px" v-for="(shop, index) in shops" :key="index">
+      <li class="shop_li border-1px" v-for="(shop, index) in shops" :key="index"
+              @click="$router.push('/shop')">
         <a>
           <div class="shop_left">
             <img class="shop_img" :src="imgArr[index]">
@@ -37,7 +38,7 @@
             </section>
           </div>
         </a>
-      </li>
+      </li >
     </ul>
     <ul v-else>
       <li><img src="./images/shop_back.svg" alt="back" ></li>

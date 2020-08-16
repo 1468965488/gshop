@@ -6,6 +6,8 @@ import router from './router/index'
 import store from './store'
 import Mint from 'mint-ui';
 import {Button} from 'mint-ui'
+import './mock/mockServer'
+
 Vue.use(Mint)
 
 //注册全局组件标签
