@@ -35,7 +35,7 @@ export const reqLogout =() =>ajax(BASE_URL+'/logout')
 export const reqShopInfo = () => ajax('/info')
 
 //获取商家信息
-export const reqShopRatings = () => ajax('/info')
+export const reqShopRatings = () => ajax('/rating')
 
 //获取商家信息
-export const reqShopGoods = () => ajax('/info')
+export const reqShopGoods = () => ajax('/goods')
