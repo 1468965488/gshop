@@ -1,6 +1,3 @@
-为什么会有人克隆我没写完的代码，等我写完不香嘛
-
-
 # gshop
 
 > A Vue.js project
@@ -22,3 +19,4 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+、
