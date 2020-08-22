@@ -5,10 +5,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Msite from '../pages/Msite/Msite'
-import Order from '../pages/Order/Order'
-import Search from '../pages/Search/Search'
-import Profile from '../pages/Profile/Profile'
+// import Msite from '../pages/Msite/Msite'
+// import Order from '../pages/Order/Order'
+// import Search from '../pages/Search/Search'
+// import Profile from '../pages/Profile/Profile'
+
+const Msite = ()=> import('../pages/Msite/Msite')
+const Order = ()=> import('../pages/Order/Order')
+const Search = ()=> import('../pages/Search/Search')
+const Profile = ()=> import('../pages/Profile/Profile')
+
+
 import Login from '../pages/Login/Login'
 import Shop from '../pages/Shop/Shop'
 import ShopGoods from '../pages/Shop/ShopGoods/ShopGoods'

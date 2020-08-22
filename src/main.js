@@ -7,6 +7,7 @@ import store from './store'
 import Mint from 'mint-ui';
 import {Button} from 'mint-ui'
 import './mock/mockServer'
+import './filter'    //加载过滤器
 
 Vue.use(Mint)
 
